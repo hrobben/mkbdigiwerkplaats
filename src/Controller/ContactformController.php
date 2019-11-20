@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/contactform")
+ * @Route("/contact")
  */
 class ContactformController extends AbstractController
 {
     /**
-     * @Route("/", name="contactform_index", methods={"GET"})
+     * @Route("/list", name="contactform_index", methods={"GET"})
      */
     public function index(ContactformRepository $contactformRepository): Response
     {
@@ -26,7 +26,7 @@ class ContactformController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="contactform_new", methods={"GET","POST"})
+     * @Route("/", name="contactform_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {

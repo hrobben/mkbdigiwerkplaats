@@ -703,6 +703,21 @@ body section:nth-of-type(2n+1) {
 * end FOSUserBundle
 */
 
+/*
+* crud forms
+*/
+.formcontainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/*
+* end crud forms
+*/
+
 .logos{
     display: flex;
     justify-content: space-around;

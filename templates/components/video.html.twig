@@ -1,0 +1,15 @@
+<video class="video" controls>
+    {% for file in video.files %}
+        <source src="{{ file.file }}" type="video/{{ file.type }}">
+    {% endfor %}
+    {% if video.captions is defined %}
+        {% for caption in video.captions %}
+            <track label="{{ caption.lang }}" kind="captions" srclang="{{ caption.lang }}" src="{{ caption.file }}">
+        {% endfor %}
+    {% endif %}
+    {% if video.descriptions is defined %}
+        {% for description in video.descriptions %}
+            <track label="{{ description.lang }}" kind="descriptions" srclang="{{ description.lang }}" src="{{ description.file }}">
+        {% endfor %}
+    {% endif %}
+</video>

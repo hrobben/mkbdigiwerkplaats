@@ -1,0 +1,12 @@
+<div class="partnerssection">
+    <p class="partnerstitle">In samenwerking met</p>
+    <div class="partnerscontainer">
+        {% if partners is defined %}
+            {% for partner in partners %}
+                <div class="partner">
+                    <a href="{{ partner.link }}"><img class="partnerlogo" src="{{ partner.image }}" alt="{{ partner.name }}"></a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

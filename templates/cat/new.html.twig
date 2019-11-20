@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% set navType = 'default' %}
+
+{% block title %}New Cat{% endblock %}
+
+{% block body %}
+    <h1>Create new Cat</h1>
+
+    {{ include('cat/_form.html.twig') }}
+
+    <a href="{{ path('cat_index') }}">back to list</a>
+{% endblock %}

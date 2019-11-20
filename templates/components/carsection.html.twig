@@ -1,0 +1,13 @@
+<section class="carsection">
+    {% if cars is defined %}
+        {% for car in cars %}
+            <div class="carcolumn">
+                <div class="carrow">
+                    <img class="carimage" src="{{ car.icon }}" alt="icon">
+                    <p class="cartitle">{{ car.title }}</p>
+                </div>
+                <p class="cardesc">{{ car.text }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>

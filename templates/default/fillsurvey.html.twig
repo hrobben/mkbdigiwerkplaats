@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% set navType = 'default' %}
+
+{% block title %}De Werkplaats{% endblock %}
+
+{% block body %}
+    <div class="surveycontainer">
+        <div class="questioncontainer">
+            <p class="question">{{ question.description }}?</p>
+            <form>
+                <label class="container">In enim justo
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">In enim justo
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">In enim justo
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label class="container">In enim justo
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
+        </div>
+            <form action="{{ path('fillsurvey', {id:id}) }}" method="post" class="surveycontrols">
+                {% if id > 1 %}
+                    <input type="submit" name="vorige" class="button--controls--survey" value="Vorige">
+                    <input class="button--controls--survey" type="submit" name="volgende" value="Volgende">
+                {% elseif id == 10 %}
+                    <input type="submit" name="vorige" class="button--controls--survey" value="Vorige">
+                    <input class="button--controls--survey" type="submit" name="volgende" value="Volgende" style="visibility: hidden">
+                {% else %}
+                    <input type="submit" name="vorige" class="button--controls--survey" style="visibility: hidden" value="Vorige">
+                    <input class="button--controls--survey" type="submit" name="volgende" value="Volgende">
+                {% endif %}
+            </form>
+    </div>
+
+    <div class="logos">
+        <img src="{{ asset('images/Mborijnland.svg') }}" width="200" height="100">
+        <img src="{{ asset('images/DIFLogo.svg') }}" width="200" height="100">
+        <img src="{{ asset('images/HHS.svg') }}" width="200" height="100">
+    </div>
+{% endblock %}

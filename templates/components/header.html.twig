@@ -1,0 +1,29 @@
+<section class="header">
+    <div class="headertext">
+        <h1>
+            {{ title }}
+        </h1>
+        <p>
+            {{ text }}
+        </p>
+        {% if button.link is defined %}
+            <a href="{{button.link}}">
+                <button class="button--readmore--header">
+                    {% if button.text is defined %}
+                        {{ button.text}}
+                    {% else %}
+                        click here!
+                    {% endif %}
+                </button>
+            </a>
+        {% endif %}
+    </div>
+        {% if video is defined %}
+            <div class="headervideo">
+                {% include 'components/video.html.twig'
+                    with {video:video}
+                %}
+            </div>
+        {% else %}
+    {% endif %}
+</section>

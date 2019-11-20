@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="language" content="NL">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% include 'components/nav.html.twig' with {navType:navType} %}
+        <div class="content" role="main">
+            {% block body %}{% endblock %}
+        </div>
+        {% include 'components/footer.html.twig' %}
+        {% block javascripts %}{% endblock %}
+        {# determine navigation type #}
+        {% if navType is defined %}
+            {% if navType == "header"%}
+                <script type="module" src="{{ asset('scripts/navcolour.js') }}"></script>
+            {% endif %}
+        {% endif %}
+        <script type="module" src="{{ asset('scripts/navresponsive.js') }}"></script>
+    </body>
+</html>

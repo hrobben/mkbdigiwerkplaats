@@ -1,0 +1,34 @@
+<section class="videosection">
+    {% if videos is defined %}
+        {% for video in videos %}
+            <div class="videocolumn">
+                {% include 'components/video.html.twig'
+                    with {video:video.video}
+                %}
+                <div class="videotext">
+                    {% if video.title is defined %}
+                        <p class="videotitle">
+                            {{ video.title }}
+                        </p>
+                    {% endif %}
+                    {% if video.text is defined %}
+                        <p class="videodesc">
+                            {{ video.text }}
+                        </p>
+                    {% endif %}
+                    {% if video.link is defined %}
+                        <a href="{{video.link}}">
+                            <button class="button--readmore--video">
+                                {% if video.linkText is defined %}
+                                    {{ video.linkText}}
+                                {% else %}
+                                    click here!
+                                {% endif %}
+                            </button>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</section>

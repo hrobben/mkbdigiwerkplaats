@@ -1,0 +1,761 @@
+/*
+* fonts
+*/
+@font-face {
+    font-family: Karla;
+    src: url("../fonts/Karla-Regular.ttf");
+}
+/*
+* end fonts
+/*
+
+/*
+* global CSS
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Karla", sans-serif;
+}
+
+h1 {
+
+    padding-top: 10%;
+    font-weight: normal;
+    font-size: 3rem;
+}
+
+body section:nth-of-type(2n) {
+    background-color: #FFFFFF;
+}
+
+body section:nth-of-type(2n+1) {
+    background-color: #F2F2F2;
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+}
+/*
+* end global CSS
+/*
+
+/*
+* navigation
+*/
+.navigation {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.navigation--nonscrolled {
+    background-color: transparent;
+}
+
+.navigation--scrolled {
+    background-color: #FFFFFF;
+}
+
+.navmenu {
+    width: 25%;
+    min-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navmenu--nonscrolled {
+    background-color: transparent;
+}
+
+.navmenu--scrolled {
+    background-color: #FFFFFF;
+}
+
+.navoption {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navoption--nonscrolled {
+    color: #FFFFFF;
+}
+
+.navoption--scrolled {
+    color: #000000;
+}
+
+.hamburger {
+    width: 3rem;
+    min-width: 3rem;
+    height: 3rem;
+    min-height: 3rem;
+    display: none;
+
+    cursor: pointer;
+}
+
+.hamburger--nonscrolled {
+    background-image: url("../images/hamburger-white.svg");
+}
+
+.hamburger--scrolled {
+    background-image: url("../images/hamburger-black.svg");
+}
+
+@media screen and (max-width: 1000px) {
+    nav {
+        justify-content: space-around;
+        padding: 10px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .navmenu {
+        position: absolute;
+        width: 100%;
+        top: 7rem;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 10px;
+        display: none;
+    }
+
+    .navmenu--visible {
+        display: flex;
+    }
+
+    .navmenu--invisible {
+        display: none;
+    }
+
+    .navoption {
+        margin: 0.8rem;
+        font-size: 1.5rem;
+    }
+}
+/*
+* end navigation
+/*
+
+/*
+* header
+*/
+.header{
+    color: #FFFFFF;
+    width: 100%;
+    min-height: 60vh;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.headertext p{
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+    align-items: center;
+    letter-spacing: 0.1em;
+}
+
+.headertext {
+    width: 25%;
+}
+
+.button--readmore--header{
+    border: none;
+    background-color: #FEED02;
+    width: 200px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 15px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.headervideo iframe {
+    width: 640px;
+    height: 360px;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .header{
+        flex-direction: column;
+    }
+
+    .headertext {
+        width: 80%;
+    }
+
+    .headertext p {
+        font-size: 1.5em;
+    }
+
+    .headervideo {
+        display: none;
+    }
+}
+/*
+* end header
+/*
+
+/*
+* car section
+*/
+.carsection {
+    width: 100%;
+    min-height: 300px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.carcolumn {
+    width: 20%;
+
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carrow {
+    display: flex;
+    align-items: center;
+}
+
+.carimage {
+    min-width: 2rem;
+    min-height: 2rem;
+    margin: 1rem;
+}
+
+.cartitle {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+
+    padding: 0;
+}
+
+.cardesc {
+    margin-left: 4.4rem;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.1em;
+}
+
+@media screen and (max-width: 1000px) {
+    .carsection {
+        flex-direction: column;
+        align-items: center;
+
+        height: auto;
+        padding-bottom: 2rem;
+    }
+
+    .carcolumn {
+        min-width: 80%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cartitle {
+        font-size: 1.3rem;
+    }
+
+    .cardesc {
+        margin-left: 5rem;
+        font-size: 1.2rem;
+    }
+}
+/*
+* end car section
+/*
+
+/*
+* video section
+*/
+.videosection {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.videocolumn {
+    width: 100%;
+    min-height: 300px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.videosection .videocolumn:nth-of-type(2n) {
+    flex-direction: row-reverse;
+}
+
+.videosection .videocolumn:nth-of-type(2n+1) {
+    flex-direction: row;
+}
+
+.video {
+    max-width: 600px;
+    min-width: 300px;
+}
+
+.videotext {
+    width: 40%;
+}
+
+.videotitle {
+    font-family: "Karla", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 2rem;
+    line-height: 2rem;
+
+    margin: 0;
+
+    text-transform: uppercase;
+}
+
+.videodesc {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 1.2rem;
+}
+
+.button--readmore--video {
+    background-color: #FEED02;
+    border: none;
+    border-radius: 50px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 18px;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    padding: 10px 50px;
+}
+
+@media screen and (max-width: 1000px) {
+    .videosection .videocolumn:nth-of-type(2n), .videosection .videocolumn:nth-of-type(2n+1) {
+        flex-direction: column-reverse;
+    }
+
+    .video {
+        width: 80%;
+        margin: 2rem;
+    }
+
+    .videotext {
+        width: 80%;
+        margin: 2rem;
+    }
+
+    .videodesc {
+        font-size: 1.3rem;
+        line-height: 1.5rem;
+    }
+}
+/*
+* end video section
+/*
+
+/*
+* partners section
+*/
+.partnerssection {
+    min-height: 300px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.partnerstitle {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 49px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    text-align: center;
+
+    margin: 0;
+}
+
+.partnerscontainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.partner {
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: calc(100%/4);
+}
+
+.partnerlogo {
+    height: 70px;
+}
+/*
+* end partners section
+/*
+
+/*
+* footer
+*/
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.footerrow {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4.5rem;
+}
+
+.footercolumn {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100%/3);
+    padding-left: 5rem;
+    padding-right: 5rem;
+    align-content: flex-start;
+}
+
+.footercolumn--logo {
+    display: flex;
+    flex-direction: column;
+    max-width: 20rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    align-content: flex-start;
+}
+
+.footerlogo {
+    width: 200px;
+}
+
+.footertitle {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.footerlist {
+    padding: 0;
+    list-style-type: none;
+}
+
+.footerlist li a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 800px) {
+    .footerrow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footercolumn, .footercolumn--logo {
+        padding: 0;
+        width: auto;
+        max-width: 30rem;
+        width: 50%;
+    }
+}
+/*
+* end footer
+*/
+
+/*
+* about
+*/
+.aboutcontainer {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+}
+
+.black {
+    width: 50%;
+    height: 100%;
+    background-color: #383838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.abouttext {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.white {
+    width: 50%;
+    height: 100%;
+    background-color: #FFFFFF;
+}
+
+.abouttext {
+    margin: 0;
+}
+
+.maps {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+    .black, .white {
+        width: 100%;
+    }
+
+    .aboutcontainer {
+        flex-direction: column;
+    }
+}
+/*
+* end about
+*/
+
+/*
+* survey
+*/
+.surveycontainer {
+    width: 100%;
+
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.questioncontainer {
+    background-color: #FFFFFF;
+    width: 60%;
+    min-height: 350px;
+    padding: 2rem;
+    border-radius: 10px; 
+}
+
+.question {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 7.5%;
+}
+
+.optiontext {
+    font-size: 1.5rem;
+}
+
+.surveycontrols {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.button--controls--survey {
+    width: 12rem;
+
+    background-color: #FEED02;
+    border: none;
+    border-radius: 40px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 18px;
+    text-align: center;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    padding: 20px 50px;
+}
+/*
+* end survey
+*/
+
+/*
+* FOSUserBuidel
+*/
+.login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputfield--login {
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.checkbox-div--login {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.loginbutton {
+    margin-top: 1rem;
+    background-color: #FEED02;
+    border: none;
+    border-radius: 50px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 18px;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    padding: 10px 50px;
+}
+/*
+* end FOSUserBundle
+*/
+
+.logos{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+}
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #D9C900;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}

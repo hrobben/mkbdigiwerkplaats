@@ -1,0 +1,153 @@
+{% extends 'base.html.twig' %}
+
+{% set navType = 'header' %}
+
+{% block title %}De Werkplaats{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html.twig'
+        with {
+            title:"MKB Werkplaats",
+            text:"Hoe future proof is uw onderneming?
+
+Onze studenten zien de digitale kansen, uitdagingen en mogelijkheden voor uw bedrijf waar u (nog) geen weet van hebt.
+We gaan graag samen met u aan de slag!
+
+Bereik meer klanten, werk efficiënter, maak meer winst.
+Heeft u een concrete vraag of wilt u samen kijken wat er mogelijk is. Meldt u aan!
+",
+            button:{
+                text:"Ga naar de vragenlijst",
+                link: ''
+            },
+            video:{
+                files:[
+                    {
+                        "file": asset(''),
+                        "type": "mp4"
+                    },
+                    {
+                        "file": asset(''),
+                        "type": "ogg"
+                    },
+                ],
+                captions:[
+                    {
+                        "file": asset(''),
+                        "lang": "en"
+                    },
+                    {
+                        "file": asset(''),
+                        "lang": "nl"
+                    },
+                ],
+                descriptions:[
+                    {
+                        "file": asset(''),
+                        "lang": "en"
+                    },
+                    {
+                        "file": asset(''),
+                        "lang": "nl"
+                    },
+                ]
+            }
+        }
+    %}
+
+{#    {% include 'components/carsection.html.twig'
+        with {
+            cars:[
+                {
+                    "icon": asset('images/car.svg'),
+                    "title": "Lorem Ipsum is simply dummy",
+                    "text":"Contrary to popular belief, Lorem Ipsum is not simply random text."
+                },
+                {
+                    "icon": asset('images/car.svg'),
+                    "title": "Lorem Ipsum is simply dummy",
+                    "text":"Contrary to popular belief, Lorem Ipsum is not simply random text."
+                },
+                {
+                    "icon": asset('images/car.svg'),
+                    "title": "Lorem Ipsum is simply dummy",
+                    "text":"Contrary to popular belief, Lorem Ipsum is not simply random text."
+                },
+            ]
+        }
+    %}#}
+
+    {% include 'components/videosection.html.twig'
+        with {
+            videos:[
+                {
+                    video:{
+                        files:[
+                            {
+                                "file": asset(''),
+                                "type": "mp4"
+                            },
+                            {
+                                "file": asset(''),
+                                "type": "ogg"
+                            },
+                        ],
+                        captions:[
+                            {
+                                "file": asset(''),
+                                "lang": "en"
+                            },
+                            {
+                                "file": asset(''),
+                                "lang": "nl"
+                            },
+                        ],
+                        descriptions:[
+                            {
+                                "file": asset(''),
+                                "lang": "en"
+                            },
+                            {
+                                "file": asset(''),
+                                "lang": "nl"
+                            },
+                        ]
+                    },
+                    "title": "Binnen 4 weken meer inzicht in de digitale veiligheid van uw bedrijf?",
+                    "text":"Studenten Information Security Management van de HBO ICT opleiding van de Haagse Hogeschool gaan in januari 2020 graag samen met u aan de slag!
+
+Studenten zijn in de periode 13 januari tot 7 februari (pf 8 juni tot 3 juli) ca 32 uur per week beschikbaar om te werken aan een beroepsgerichte praktijkopdracht. Dit kan een opdracht zijn bij uw bedrijf!
+
+Hoe goed zijn uw systemen bestand tegen hacking?
+Is uw organisatie kwetsbaar via de telefoon, mail of fysiek?
+Hoe gaan uw medewerkers om met informatie?
+Hoe (on)betrouwbaarheid is de informatie waar uw bedrijf mee werkt? Welke risico’s brengt dit met zich mee?
+
+Wilt u kosteloos meer inzicht in krijgen in een van deze vragen, of heeft u een andere vraag op het gebied van informatieveiligheid?
+
+In een periode van 4 weken lichten studenten uw bedrijf door en komen met concrete aanbevelingen voor verbetering.
+",
+                    "link": "",
+                    "linkText": "lees meer"
+                },
+            ]
+        }
+    %}
+
+    {% include 'components/partnerssection.html.twig'
+        with {
+            partners:[
+                {
+                    "image": asset('images/HHS.svg'),
+                    "name": "De Haagse Hogeschool",
+                    "link":"https://hhs.nl",
+                },
+                {
+                    "image": asset('images/Mborijnland.svg'),
+                    "name": "mboRijnland",
+                    "link":"https://mborijnland.nl",
+                },
+            ]
+        }
+    %}
+{% endblock %}

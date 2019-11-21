@@ -2,31 +2,31 @@
 
 {% set navType = 'default' %}
 
-{% block title %}Survey index{% endblock %}
+{% block title %}Choice index{% endblock %}
 
 {% block body %}
-    <h1>Survey index</h1>
+    <h1>Choice index</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Route</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Type</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for survey in surveys %}
+        {% for choice in choices %}
             <tr>
-                <td>{{ survey.id }}</td>
-                <td>{{ survey.route }}</td>
-                <td>{{ survey.name }}</td>
-                <td>{{ survey.description }}</td>
+                <td>{{ choice.id }}</td>
+                <td>{{ choice.name }}</td>
+                <td>{{ choice.description }}</td>
+                <td>{{ choice.type }}</td>
                 <td>
-                    <a href="{{ path('survey_show', {'id': survey.id}) }}">show</a>
-                    <a href="{{ path('survey_edit', {'id': survey.id}) }}">edit</a>
+                    <a href="{{ path('choice_show', {'id': choice.id}) }}">show</a>
+                    <a href="{{ path('choice_edit', {'id': choice.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('survey_new') }}">Create new</a>
+    <a href="{{ path('choice_new') }}">Create new</a>
 {% endblock %}

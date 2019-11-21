@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% set navType = 'default' %}
+
+{% block title %}Edit Choice{% endblock %}
+
+{% block body %}
+    <h1>Edit Choice</h1>
+
+    {{ include('choice/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('choice_index') }}">back to list</a>
+
+    {{ include('choice/_delete_form.html.twig') }}
+{% endblock %}

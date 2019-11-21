@@ -53,6 +53,11 @@ class Choice
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
+
     public function getName(): ?string
     {
         return $this->name;

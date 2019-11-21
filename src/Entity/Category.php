@@ -38,6 +38,11 @@ class Category
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
+
     public function getType(): ?string
     {
         return $this->type;

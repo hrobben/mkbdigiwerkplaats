@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
         {% for answer in answers %}
             <tr>
                 <td>{{ answer.id }}</td>
+                <td>{{ answer.description }}</td>
                 <td>
                     <a href="{{ path('answer_show', {'id': answer.id}) }}">show</a>
                     <a href="{{ path('answer_edit', {'id': answer.id}) }}">edit</a>
@@ -25,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

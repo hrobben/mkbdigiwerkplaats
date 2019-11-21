@@ -32,6 +32,11 @@ class Page
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
+
     public function getSurvey(): ?Survey
     {
         return $this->survey;

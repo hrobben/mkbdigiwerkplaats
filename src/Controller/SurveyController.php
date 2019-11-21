@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Survey;
-use App\Form\SurveyType;
+use App\Form\Survey1Type;
 use App\Repository\SurveyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class SurveyController extends AbstractController
     public function new(Request $request): Response
     {
         $survey = new Survey();
-        $form = $this->createForm(SurveyType::class, $survey);
+        $form = $this->createForm(Survey1Type::class, $survey);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class SurveyController extends AbstractController
      */
     public function edit(Request $request, Survey $survey): Response
     {
-        $form = $this->createForm(SurveyType::class, $survey);
+        $form = $this->createForm(Survey1Type::class, $survey);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

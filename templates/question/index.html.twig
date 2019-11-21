@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -18,6 +19,7 @@
         {% for question in questions %}
             <tr>
                 <td>{{ question.id }}</td>
+                <td>{{ question.description }}</td>
                 <td>
                     <a href="{{ path('question_show', {'id': question.id}) }}">show</a>
                     <a href="{{ path('question_edit', {'id': question.id}) }}">edit</a>
@@ -25,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">no records found</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

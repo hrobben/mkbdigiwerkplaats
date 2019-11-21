@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Question;
-use App\Form\QuestionType;
+use App\Form\Question1Type;
 use App\Repository\QuestionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class QuestionController extends AbstractController
     public function new(Request $request): Response
     {
         $question = new Question();
-        $form = $this->createForm(QuestionType::class, $question);
+        $form = $this->createForm(Question1Type::class, $question);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class QuestionController extends AbstractController
      */
     public function edit(Request $request, Question $question): Response
     {
-        $form = $this->createForm(QuestionType::class, $question);
+        $form = $this->createForm(Question1Type::class, $question);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

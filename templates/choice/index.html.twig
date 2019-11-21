@@ -13,6 +13,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Type</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                 <td>{{ choice.id }}</td>
                 <td>{{ choice.name }}</td>
                 <td>{{ choice.description }}</td>
+                <td>{{ choice.type }}</td>
                 <td>
                     <a href="{{ path('choice_show', {'id': choice.id}) }}">show</a>
                     <a href="{{ path('choice_edit', {'id': choice.id}) }}">edit</a>
@@ -29,7 +31,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

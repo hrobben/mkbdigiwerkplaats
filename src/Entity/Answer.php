@@ -36,6 +36,11 @@ class Answer
         return $this->id;
     }
 
+    public function __toString()
+    {
+        return (string) $this->getId();
+    }
+
     public function getDescription(): ?string
     {
         return $this->description;

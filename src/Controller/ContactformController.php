@@ -39,7 +39,11 @@ class ContactformController extends AbstractController
             $entityManager->persist($contactform);
             $entityManager->flush();
 
-            return $this->redirectToRoute('contactform_index');
+            return $this->render('contactform/new.html.twig', [
+                'contactform' => $contactform,
+                'form' => $form->createView(),
+                'submitted' => true
+            ]);
         }
 
         return $this->render('contactform/new.html.twig', [

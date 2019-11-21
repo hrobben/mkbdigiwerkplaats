@@ -6,6 +6,15 @@
 
 {% block body %}
     <div class="formcontainer">
-        {{ include('contactform/_form.html.twig') }}
+        {% if submitted is defined %}
+            {% if submitted == true %}
+                <p>Uw bericht is verstuurd!</p>
+            {% endif %}
+        {% else %}
+            <div class="contactdescription">
+                <p>Heeft u vragen en/of opmerkingen?</p>
+            </div>
+            {{ include('contactform/_form.html.twig') }}
+        {% endif %}
     </div>
 {% endblock %}

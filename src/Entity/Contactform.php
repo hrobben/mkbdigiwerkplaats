@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ContactformRepository")
  */
@@ -23,6 +25,10 @@ class Contactform
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "'{{ value }}' is geen geldig e-mailadres.",
+     *     checkMX = true
+     * )
      */
     private $email;
 

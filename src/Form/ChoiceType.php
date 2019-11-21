@@ -14,6 +14,8 @@ class ChoiceType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
+            ->add('type')
+            ->add('question')
         ;
     }
 

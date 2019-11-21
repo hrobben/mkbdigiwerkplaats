@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Choice;
-use App\Form\Choice1Type;
+use App\Form\ChoiceType;
 use App\Repository\ChoiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class ChoiceController extends AbstractController
     public function new(Request $request): Response
     {
         $choice = new Choice();
-        $form = $this->createForm(Choice1Type::class, $choice);
+        $form = $this->createForm(ChoiceType::class, $choice);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -63,7 +63,7 @@ class ChoiceController extends AbstractController
      */
     public function edit(Request $request, Choice $choice): Response
     {
-        $form = $this->createForm(Choice1Type::class, $choice);
+        $form = $this->createForm(ChoiceType::class, $choice);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

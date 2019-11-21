@@ -21,7 +21,7 @@ class AnswerController extends AbstractController
     public function index(AnswerRepository $answerRepository): Response
     {
         return $this->render('answer/index.html.twig', [
-            'answers' => $answerRepository->findAll(),
+            'answers' => $answerRepository->findByUser($this->getUser()),
         ]);
     }
 

@@ -2,10 +2,10 @@
 
 {% set navType = 'default' %}
 
-{% block title %}Cat index{% endblock %}
+{% block title %}Category index{% endblock %}
 
 {% block body %}
-    <h1>Cat index</h1>
+    <h1>Category index</h1>
 
     <table class="table">
         <thead>
@@ -16,13 +16,13 @@
             </tr>
         </thead>
         <tbody>
-        {% for cat in cats %}
+        {% for category in categories %}
             <tr>
-                <td>{{ cat.id }}</td>
-                <td>{{ cat.type }}</td>
+                <td>{{ category.id }}</td>
+                <td>{{ category.type }}</td>
                 <td>
-                    <a href="{{ path('cat_show', {'id': cat.id}) }}">show</a>
-                    <a href="{{ path('cat_edit', {'id': cat.id}) }}">edit</a>
+                    <a href="{{ path('category_show', {'id': category.id}) }}">show</a>
+                    <a href="{{ path('category_edit', {'id': category.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cat_new') }}">Create new</a>
+    <a href="{{ path('category_new') }}">Create new</a>
 {% endblock %}

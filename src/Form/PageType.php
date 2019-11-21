@@ -2,26 +2,25 @@
 
 namespace App\Form;
 
-use App\Entity\Survey;
+use App\Entity\Page;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SurveyType extends AbstractType
+class PageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('route')
-            ->add('name')
-            ->add('description')
+            ->add('placement')
+            ->add('survey')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Survey::class,
+            'data_class' => Page::class,
         ]);
     }
 }

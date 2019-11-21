@@ -13,8 +13,8 @@ class AnswerType extends AbstractType
     {
         $builder
             ->add('description')
-            ->add('fos_user_id')
-            ->add('Choice_id')
+            ->add('choice')
+            ->add('user')
         ;
     }
 

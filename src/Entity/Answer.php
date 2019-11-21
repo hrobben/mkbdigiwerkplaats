@@ -22,18 +22,23 @@ class Answer
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Choice", inversedBy="answers")
      */
-    private $fos_user_id;
+    private $choice;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Choice")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="answers")
      */
-    private $Choice_id;
+    private $user;
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->getId();
     }
 
     public function getDescription(): ?string
@@ -48,26 +53,26 @@ class Answer
         return $this;
     }
 
-    public function getFosUserId(): ?User
+    public function getChoice(): ?Choice
     {
-        return $this->fos_user_id;
+        return $this->choice;
     }
 
-    public function setFosUserId(?User $fos_user_id): self
+    public function setChoice(?Choice $choice): self
     {
-        $this->fos_user_id = $fos_user_id;
+        $this->choice = $choice;
 
         return $this;
     }
 
-    public function getChoiceId(): ?Choice
+    public function getUser(): ?User
     {
-        return $this->Choice_id;
+        return $this->user;
     }
 
-    public function setChoiceId(?Choice $Choice_id): self
+    public function setUser(?User $user): self
     {
-        $this->Choice_id = $Choice_id;
+        $this->user = $user;
 
         return $this;
     }

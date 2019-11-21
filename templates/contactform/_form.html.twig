@@ -1,0 +1,4 @@
+{{ form_start(form, {'attr': {'class': 'contactform'}} ) }}
+    {{ form_widget(form) }}
+    <button class="btn submitbutton">{{ button_label|default('Verstuur') }}</button>
+{{ form_end(form) }}

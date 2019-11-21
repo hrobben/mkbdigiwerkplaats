@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% set navType = 'default' %}
+
+{% block title %}Edit Contactform{% endblock %}
+
+{% block body %}
+    <h1>Edit Contactform</h1>
+
+    {{ include('contactform/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('contactform_index') }}">back to list</a>
+
+    {{ include('contactform/_delete_form.html.twig') }}
+{% endblock %}

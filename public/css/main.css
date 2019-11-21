@@ -33,6 +33,10 @@ body section:nth-of-type(2n+1) {
     background-color: #F2F2F2;
 }
 
+input, textarea {
+    background: transparent;
+}
+
 .content {
     margin: 0;
     padding: 0;
@@ -701,6 +705,53 @@ body section:nth-of-type(2n+1) {
 }
 /*
 * end FOSUserBundle
+*/
+
+/*
+* crud forms
+*/
+.formcontainer {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contactform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inputfield--contact {
+    font-family: sans-serif;
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.submitbutton {
+    margin-top: 1rem;
+    background-color: #FEED02;
+    border: none;
+    border-radius: 50px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 18px;
+
+    text-transform: uppercase;
+    cursor: pointer;
+
+    padding: 10px 50px;
+}
+/*
+* end crud forms
 */
 
 .logos{

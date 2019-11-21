@@ -35,4 +35,6 @@ security:
         - { path: ^/survey/, role: ROLE_ADMIN }
         - { path: ^/question/, role: ROLE_ADMIN }
         - { path: ^/cat/, role: ROLE_ADMIN }
-        #- { path: ^/answer/, role: ROLE_USER }
+        - { path: ^/answer/, role: ROLE_USER }
+
+        - { path: ^/contact/[A-Za-z0-9_.]+$, role: ROLE_ADMIN }

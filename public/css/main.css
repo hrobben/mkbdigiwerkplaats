@@ -712,6 +712,7 @@ input, textarea {
 */
 .formcontainer {
     width: 100%;
+    margin: 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -729,9 +730,12 @@ input, textarea {
 .inputfield--contact {
     font-family: sans-serif;
     width: 20rem;
-    height: 2rem;
+    min-height: 2rem;
     border: none;
     border-bottom: 1px solid black;
+    resize: none;
+    padding: 0;
+    margin: 0.5rem;
 }
 
 .submitbutton {

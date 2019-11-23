@@ -37,6 +37,16 @@ class Contactform
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $datetime;
+
+    public function __construct()
+    {
+        $this->datetime = new \DateTime(); 
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +84,18 @@ class Contactform
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getDatetime(): ?\DateTimeInterface
+    {
+        return $this->datetime;
+    }
+
+    public function setDatetime(\DateTimeInterface $datetime): self
+    {
+        $this->datetime = $datetime;
 
         return $this;
     }

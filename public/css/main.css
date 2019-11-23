@@ -542,9 +542,9 @@ input, textarea {
 */
 
 /*
-* about
+* contact
 */
-.aboutcontainer {
+.contactcontainer {
     width: 100%;
     height: 80vh;
     display: flex;
@@ -559,20 +559,34 @@ input, textarea {
     align-items: center;
 }
 
-.abouttext {
+.formcontainer--contact {
+    width: 50%;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contactform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contacttext {
     color: #FFFFFF;
     font-size: 1.2rem;
+    line-height: 2rem;
     margin: 0;
 }
 
-.white {
-    width: 50%;
-    height: 100%;
+.mapcontainer {
+    width: 100%;
+    height: 50rem;
     background-color: #FFFFFF;
-}
-
-.abouttext {
-    margin: 0;
 }
 
 .maps {
@@ -591,7 +605,7 @@ input, textarea {
     }
 }
 /*
-* end about
+* end contact
 */
 
 /*
@@ -712,14 +726,8 @@ input, textarea {
 */
 .formcontainer {
     width: 100%;
+    margin: 0;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.contactform {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -729,9 +737,12 @@ input, textarea {
 .inputfield--contact {
     font-family: sans-serif;
     width: 20rem;
-    height: 2rem;
+    min-height: 2rem;
     border: none;
     border-bottom: 1px solid black;
+    resize: none;
+    padding: 0;
+    margin: 0.5rem;
 }
 
 .submitbutton {

@@ -25,6 +25,10 @@
                 <th>Message</th>
                 <td>{{ contactform.message }}</td>
             </tr>
+            <tr>
+                <th>Datetime</th>
+                <td>{{ contactform.datetime|date('Y-m-d H:i:s') }}</td>
+            </tr>
         </tbody>
     </table>
 

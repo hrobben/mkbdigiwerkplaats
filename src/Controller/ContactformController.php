@@ -28,8 +28,8 @@ class ContactformController extends AbstractController
     /**
      * @Route("/", name="contactform_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
-    {
+    public function new(\Swift_Mailer $mailer, Request $request): Response
+    {        
         $contactform = new Contactform();
         $form = $this->createForm(ContactformType::class, $contactform);
         $form->handleRequest($request);
@@ -38,6 +38,32 @@ class ContactformController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contactform);
             $entityManager->flush();
+
+            $message = (new \Swift_Message('Confirmation mail'))
+            ->setFrom('send@example.com')
+            ->setTo($contactform->getEmail())
+            ->setBody(
+                $this->renderView(
+                    'emails/confirmation.html.twig', [
+                        'name' => $contactform->getName(),
+                        'email' => $contactform->getEmail()
+                    ]
+                ),
+                'text/html'
+            )
+
+            ->addPart(
+                $this->renderView(
+                    // templates/emails/registration.txt.twig
+                    'emails/confirmation.txt.twig',[
+                        'name' => $contactform->getName(),
+                        'email' => $contactform->getEmail()
+                    ]
+                ),
+                'text/plain'
+            );
+    
+            $mailer->send($message);
 
             return $this->render('contactform/new.html.twig', [
                 'contactform' => $contactform,

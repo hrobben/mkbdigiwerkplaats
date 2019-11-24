@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ContactType;
 use App\Entity\Question;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -22,10 +24,22 @@ class DefaultController extends AbstractController
     /**
      * @Route("/about", name="about")
      */
-    public function about()
+    public function about(Request $request)
     {
-        return $this->render('default/about.html.twig', [
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $contactFormData = $form->getData();
+
+            dump($contactFormData);
+
+            // do something interesting here
+        }
+
+        return $this->render('default/about.html.twig', [
+            'our_form' => $form->createView(),
         ]);
     }
 

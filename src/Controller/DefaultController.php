@@ -45,6 +45,7 @@ class DefaultController extends AbstractController
                     );
                 $mailer->send($message);
             }
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('default/about.html.twig', [

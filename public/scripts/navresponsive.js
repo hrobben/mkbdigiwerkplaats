@@ -1,38 +1,21 @@
-import { hamburger, nav, navMenu, navOptions, navBreakPoint } from "./globalvars.js";
-let hamburgerClicked = false; // whether the hamburger menu is active or not
+import { Nav } from "./Nav.js";
 
+const navigation = new Nav
 /*
 * activate/deactivate hamburger menu on click
 */
 hamburger.addEventListener('click', function (event) {
     event.preventDefault();
-    if (hamburgerClicked === false) {
-        navMenu.classList.add("navmenu--visible");
-        navMenu.classList.remove("navmenu--invisible");
-        hamburgerClicked = true;
+    if (navigation.hamburgerClicked === false) {
+        navigation.responsive("visible")
+        navigation.hamburgerClicked = true
 
-        /*
-        * Make sure the menu turns opaque to prevent overlapping text
-        */
-        nav.classList.add("navigation--scrolled");
-        nav.classList.remove("navigation--nonscrolled");
-
-        navMenu.classList.add("navmenu--scrolled");
-        navMenu.classList.remove("navmenu--nonscrolled");
-
-        hamburger.classList.add("hamburger--scrolled");
-        hamburger.classList.remove("hamburger--nonscrolled");
-
-        navlogo.src = "/images/logo-blacktext.png";
-        for (let i = 0; i < navOptions.length; ++i) {
-            navOptions[i].classList.add("navoption--scrolled");
-            navOptions[i].classList.remove("navoption--nonscrolled");
-        }
+        /* Make sure the menu turns opaque to prevent overlapping text */
+        navigation.recolour("scrolled")
     }
     else {
-        navMenu.classList.add("navmenu--invisible");
-        navMenu.classList.remove("navmenu--visible");
-        hamburgerClicked = false;
+        navigation.responsive("hidden")
+        navigation.hamburgerClicked = false
     }
 });
 
@@ -41,14 +24,12 @@ hamburger.addEventListener('click', function (event) {
 */
 window.addEventListener('resize', function (event) {
     event.preventDefault();
-    if (window.innerWidth >= navBreakPoint) {
-        navMenu.classList.add("navmenu--visible");
-        navMenu.classList.remove("navmenu--invisible");
+    if (window.innerWidth >= navigation.navBreakPoint) {
+        navigation.responsive("visible")
     }
     else {
-        navMenu.classList.add("navmenu--invisible");
-        navMenu.classList.remove("navmenu--visible");
-        hamburgerClicked = false;
+        navigation.responsive("hidden")
+        navigation.hamburgerClicked = false
     }
 });
 
@@ -57,14 +38,12 @@ window.addEventListener('resize', function (event) {
 */
 window.addEventListener('load', function (event) {
     event.preventDefault();
-    if (window.innerWidth >= navBreakPoint) {
-        navMenu.classList.add("navmenu--visible");
-        navMenu.classList.remove("navmenu--invisible");
+    if (window.innerWidth >= navigation.navBreakPoint) {
+        navigation.responsive("visible")
     }
     else {
-        navMenu.classList.add("navmenu--invisible");
-        navMenu.classList.remove("navmenu--visible");
-        hamburgerClicked = false;
+        navigation.responsive("hidden")
+        navigation.hamburgerClicked = false
     }
 });
 
@@ -72,9 +51,8 @@ window.addEventListener('load', function (event) {
 * hide the nav menu on scroll
 */
 window.addEventListener('scroll', function (event) {
-    if (window.innerWidth < navBreakPoint) {
-        navMenu.classList.add("navmenu--invisible");
-        navMenu.classList.remove("navmenu--visible");
-        hamburgerClicked = false;
+    if (window.innerWidth < navigation.navBreakPoint) {
+        navigation.responsive("hidden")
+        navigation.hamburgerClicked = false
     }
 });

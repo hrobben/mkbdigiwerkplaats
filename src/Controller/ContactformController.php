@@ -35,36 +35,37 @@ class ContactformController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($contactform);
-            $entityManager->flush();
+            if ( $this->getParameter('env_parameter') == "dev" ) {
+                dump($contactform);  // for debug info
+            }
+            else {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($contactform);
+                $entityManager->flush();
 
-            $message = (new \Swift_Message('Confirmation mail'))
-            ->setFrom('send@example.com')
-            ->setTo($contactform->getEmail())
-            ->setBody(
-                $this->renderView(
-                    'emails/confirmation.html.twig', [
-                        'name' => $contactform->getName(),
-                        'email' => $contactform->getEmail()
-                    ]
-                ),
-                'text/html'
-            )
-
-            ->addPart(
-                $this->renderView(
-                    // templates/emails/registration.txt.twig
-                    'emails/confirmation.txt.twig',[
-                        'name' => $contactform->getName(),
-                        'email' => $contactform->getEmail()
-                    ]
-                ),
-                'text/plain'
-            );
-    
-            $mailer->send($message);
-
+                $message = (new \Swift_Message('Confirmation mail'))
+                ->setFrom($contactform->getEmail())
+                ->setTo($this->getParameter('mail_parameter'))
+                ->setBody(
+                    $this->renderView(
+                        'emails/confirmation.html.twig', [
+                            'name' => $contactform->getName(),
+                            'email' => $contactform->getEmail()
+                        ]
+                    ),
+                    'text/html'
+                )
+                ->addPart(
+                    $this->renderView(
+                        'emails/confirmation.txt.twig',[
+                            'name' => $contactform->getName(),
+                            'email' => $contactform->getEmail()
+                        ]
+                    ),
+                    'text/plain'
+                );
+                $mailer->send($message);
+            }
             return $this->render('contactform/new.html.twig', [
                 'contactform' => $contactform,
                 'form' => $form->createView(),

@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\ContactType;
 use App\Entity\Question;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
@@ -15,16 +17,6 @@ class DefaultController extends AbstractController
     public function index()
     {
         return $this->render('default/index.html.twig', [
-
-        ]);
-    }
-
-    /**
-     * @Route("/about", name="about")
-     */
-    public function about()
-    {
-        return $this->render('default/about.html.twig', [
 
         ]);
     }

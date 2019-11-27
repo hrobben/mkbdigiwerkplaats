@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactformType extends AbstractType
@@ -25,7 +26,7 @@ class ContactformType extends AbstractType
                 ]
             )
             ->add(
-                'email', null,
+                'email', EmailType::class,
                 [
                     'attr' => [
                         'class' => 'inputfield--contact',

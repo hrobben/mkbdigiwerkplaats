@@ -7,7 +7,7 @@
 {% block body %}
     {% include 'components/header.html.twig'
         with {
-            title:"MKB Werkplaats",
+            title:"MKB digiwerkplaats",
             text:"Hoe future proof is uw onderneming?
 
 Onze studenten zien de digitale kansen, uitdagingen en mogelijkheden voor uw bedrijf waar u (nog) geen weet van hebt.
@@ -17,7 +17,7 @@ Bereik meer klanten, werk efficiënter, maak meer winst.
 Heeft u een concrete vraag of wilt u samen kijken wat er mogelijk is. Meldt u aan!
 ",
             button:{
-                text:"Ga naar de vragenlijst",
+                text:"Meldt u aan!",
                 link: path('fillsurvey', {'id':1})
             },
             video:{
@@ -146,6 +146,16 @@ In een periode van 4 weken lichten studenten uw bedrijf door en komen met concre
                     "image": asset('images/Mborijnland.svg'),
                     "name": "mboRijnland",
                     "link":"https://mborijnland.nl",
+                },
+                {
+                    "image": asset('https://www.dutchinnovationfactory.nl/wp-content/uploads/2016/02/dif_logo-format2.jpg'),
+                    "name": "Dutch Inovation Factory",
+                    "link":"https://dutchinnovationfactory.nl",
+                },
+                {
+                    "image": asset('https://upload.wikimedia.org/wikipedia/commons/b/bf/Zoetermeer_vlag.svg'),
+                    "name": "Gemeente Zoetermeer",
+                    "link":"https://zoetermeer.nl",
                 },
             ]
         }

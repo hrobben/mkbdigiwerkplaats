@@ -5,7 +5,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     env_parameter: '%env(APP_ENV)%' # from .env file
-    mail_parameter: 'hrobben@robusoft.nl'
+    mail_parameter: 'tessarenkers@gmail.com'
 
 services:
     # default configuration for services in *this* file

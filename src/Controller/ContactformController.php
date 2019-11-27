@@ -50,7 +50,9 @@ class ContactformController extends AbstractController
                     $this->renderView(
                         'emails/confirmation.html.twig', [
                             'name' => $contactform->getName(),
-                            'email' => $contactform->getEmail()
+                            'email' => $contactform->getEmail(),
+                            'message' => $contactform->getMessage(),
+                            'datetime' => $contactform->getDatetime()
                         ]
                     ),
                     'text/html'
@@ -59,7 +61,9 @@ class ContactformController extends AbstractController
                     $this->renderView(
                         'emails/confirmation.txt.twig',[
                             'name' => $contactform->getName(),
-                            'email' => $contactform->getEmail()
+                            'email' => $contactform->getEmail(),
+                            'message' => $contactform->getMessage(),
+                            'datetime' => $contactform->getDatetime()
                         ]
                     ),
                     'text/plain'

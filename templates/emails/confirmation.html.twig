@@ -1,6 +1,7 @@
 <body>
     <p>
-        Hallo {{ name }}, uw bericht is ontvangen.
-        Wij zullen zo spoedig mogelijk reageren.
+        Nieuwe mail onvangen van: {{ name }}, {{ email }}<br />
+        Bericht aangemaakt om: {{ datetime|date("Y/m/d H:i:s") }}<br />
+        Bericht: {{ message }}<br />
     </p>
 </body>

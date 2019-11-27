@@ -24,7 +24,7 @@ class DefaultController extends AbstractController
     /**
      * @Route("/about", name="about")
      */
-    public function about(Request $request)
+    public function about(Request $request, \Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -33,9 +33,18 @@ class DefaultController extends AbstractController
 
             $contactFormData = $form->getData();
 
-            dump($contactFormData);
-
-            // do something interesting here
+            if ( $this->getParameter('env_parameter') == "dev" ) {
+                dump($contactFormData);  // for debug info
+            } else {
+                $message = (new \Swift_Message('You Got Mail from ' . $contactFormData['name']))
+                    ->setFrom($contactFormData['email'])
+                    ->setTo($this->getParameter('mail_parameter'))
+                    ->setBody(
+                        $contactFormData['message'],
+                        'text/plain'
+                    );
+                $mailer->send($message);
+            }
         }
 
         return $this->render('default/about.html.twig', [
@@ -46,23 +55,23 @@ class DefaultController extends AbstractController
     /**
      * @Route("/fillsurvey/{id}", name="fillsurvey")
      */
-     public function fillsurvey($id)
-     {
+    public function fillsurvey($id)
+    {
 
-         if (isset($_POST['volgende'])){
-             $id = $id + 1;
-         }
+        if (isset($_POST['volgende'])) {
+            $id = $id + 1;
+        }
 
-         if (isset($_POST['vorige'])){
-             $id = $id - 1;
-         }
+        if (isset($_POST['vorige'])) {
+            $id = $id - 1;
+        }
 
-         $yeehaw = $this->getDoctrine()->getRepository(Question::class)->find(['id' => $id]);
+        $yeehaw = $this->getDoctrine()->getRepository(Question::class)->find(['id' => $id]);
 
 
-         return $this->render('default/fillsurvey.html.twig', [
+        return $this->render('default/fillsurvey.html.twig', [
             'question' => $yeehaw,
-             'id' => $id
-         ]);
-     }
+            'id' => $id
+        ]);
+    }
 }

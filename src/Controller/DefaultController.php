@@ -22,6 +22,16 @@ class DefaultController extends AbstractController
     }
 
     /**
+     * @Route("/about", name="about")
+     */
+    public function about()
+    {
+        return $this->render('default/about.html.twig', [
+
+        ]);
+    }
+
+    /**
      * @Route("/fillsurvey/{id}", name="fillsurvey")
      */
     public function fillsurvey($id)
